@@ -1,0 +1,18 @@
+{
+    "name": "sample_transformer",
+    "item_type": "Data Transformer",
+    "description": "",
+    "filter": {
+        "type": "value_transformer",
+        "settings": {
+            "node": {
+                "demand": [
+                    {
+                        "operation": "multiply",
+                        "rhs": 2.0
+                    }
+                ]
+            }
+        }
+    }
+}

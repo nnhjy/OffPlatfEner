@@ -1,0 +1,655 @@
+{
+    "project": {
+        "version": 10,
+        "description": "",
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/run_spineopt_customised.json"
+                }
+            ],
+            "Importer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/importer_report__output.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/importer_platform_operation.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/importer_scenario_builder.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/importer_platform_transition.json"
+                }
+            ],
+            "Data Transformer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Data Transformer/sample_transformer.json"
+                }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/subsetexporter.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "name": "from Data Model Configuration to Step2 Import Model Config",
+                "from": [
+                    "Data Model Configuration",
+                    "right"
+                ],
+                "to": [
+                    "Step2 Import Model Config",
+                    "left"
+                ],
+                "options": {
+                    "use_datapackage": false
+                }
+            },
+            {
+                "name": "from Data Platform Operation to Step4 Import Platform Operation",
+                "from": [
+                    "Data Platform Operation",
+                    "right"
+                ],
+                "to": [
+                    "Step4 Import Platform Operation",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Step4 Import Platform Operation to SamplePlatform",
+                "from": [
+                    "Step4 Import Platform Operation",
+                    "right"
+                ],
+                "to": [
+                    "SamplePlatform",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": false,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": false,
+                        "relationship": false,
+                        "entity_group": false,
+                        "parameter_value": false,
+                        "alternative": false,
+                        "scenario": false,
+                        "scenario_alternative": false,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": false,
+                        "parameter_value_metadata": false
+                    }
+                }
+            },
+            {
+                "name": "from Step7 SpineOpt to OutputDB",
+                "from": [
+                    "Step7 SpineOpt",
+                    "right"
+                ],
+                "to": [
+                    "OutputDB",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": true,
+                        "relationship_class": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": true,
+                        "tool": true,
+                        "tool_feature": true,
+                        "tool_feature_method": true,
+                        "metadata": true,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from SamplePlatform to SelectInvScenario",
+                "from": [
+                    "SamplePlatform",
+                    "bottom"
+                ],
+                "to": [
+                    "SelectInvScenario",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SamplePlatform": {
+                            "scenario_filter": {
+                                "BAU_Operation": true,
+                                "BAU_OperationReserve": true,
+                                "Repurposing_1": true,
+                                "Repurposing_1_Reserve": true
+                            },
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from SelectInvScenario to PlatformTransitionCCS",
+                "from": [
+                    "SelectInvScenario",
+                    "right"
+                ],
+                "to": [
+                    "PlatformTransitionCCS",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": true,
+                        "relationship_class": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": true,
+                        "tool": true,
+                        "tool_feature": true,
+                        "tool_feature_method": true,
+                        "metadata": true,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from Step2 Import Model Config to InitModelConfig",
+                "from": [
+                    "Step2 Import Model Config",
+                    "right"
+                ],
+                "to": [
+                    "InitModelConfig",
+                    "left"
+                ]
+            },
+            {
+                "name": "from InitModelConfig to Step3 InitialiseModel",
+                "from": [
+                    "InitModelConfig",
+                    "right"
+                ],
+                "to": [
+                    "Step3 InitialiseModel",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@InitModelConfig": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from Step3 InitialiseModel to SamplePlatform",
+                "from": [
+                    "Step3 InitialiseModel",
+                    "right"
+                ],
+                "to": [
+                    "SamplePlatform",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": true,
+                        "relationship_class": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": true,
+                        "tool": true,
+                        "tool_feature": true,
+                        "tool_feature_method": true,
+                        "metadata": true,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from Step1 Load SpineOpt template to InitModelConfig",
+                "from": [
+                    "Step1 Load SpineOpt template",
+                    "bottom"
+                ],
+                "to": [
+                    "InitModelConfig",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": true,
+                        "relationship_class": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": true,
+                        "tool": true,
+                        "tool_feature": true,
+                        "tool_feature_method": true,
+                        "metadata": true,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from Data Scenario Design to Step6 Build Scenarios",
+                "from": [
+                    "Data Scenario Design",
+                    "right"
+                ],
+                "to": [
+                    "Step6 Build Scenarios",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Step6 Build Scenarios to SamplePlatform",
+                "from": [
+                    "Step6 Build Scenarios",
+                    "right"
+                ],
+                "to": [
+                    "SamplePlatform",
+                    "bottom"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": false,
+                        "relationship": false,
+                        "entity_group": false,
+                        "parameter_value": false,
+                        "alternative": false,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": false,
+                        "parameter_value_metadata": false
+                    }
+                }
+            },
+            {
+                "name": "from Data Platform Transition to Step5 Import Platform Transition",
+                "from": [
+                    "Data Platform Transition",
+                    "right"
+                ],
+                "to": [
+                    "Step5 Import Platform Transition",
+                    "left"
+                ]
+            },
+            {
+                "name": "from SamplePlatform to Step7 SpineOpt",
+                "from": [
+                    "SamplePlatform",
+                    "right"
+                ],
+                "to": [
+                    "Step7 SpineOpt",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SamplePlatform": {
+                            "scenario_filter": {
+                                "BAU_Operation": true,
+                                "BAU_OperationReserve": true,
+                                "Repurposing_1": true,
+                                "Repurposing_1_Reserve": true
+                            },
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from Step5 Import Platform Transition to SamplePlatform",
+                "from": [
+                    "Step5 Import Platform Transition",
+                    "right"
+                ],
+                "to": [
+                    "SamplePlatform",
+                    "bottom"
+                ]
+            }
+        ],
+        "jumps": []
+    },
+    "items": {
+        "Data Model Configuration": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -699.4105626398807,
+            "y": -172.69253276299563,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "InputData/ModelConfig.xlsx"
+                }
+            ],
+            "db_references": []
+        },
+        "Data Platform Operation": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -596.9596367541451,
+            "y": -63.227370189914986,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "InputData/PlatformOperation.xlsx"
+                }
+            ],
+            "db_references": []
+        },
+        "Data Platform Transition": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -597.9226458674245,
+            "y": 29.473466462028547,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "InputData/PlatformTransition.xlsx"
+                }
+            ],
+            "db_references": []
+        },
+        "InitModelConfig": {
+            "type": "Data Store",
+            "description": "",
+            "x": -392.0354910432244,
+            "y": -173.34217084687538,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/initmodelconfig/InitModelConfig.sqlite"
+                }
+            }
+        },
+        "OutputDB": {
+            "type": "Data Store",
+            "description": "",
+            "x": 474.3250522926562,
+            "y": -171.37553874777555,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/outputdb/OutputDB.sqlite"
+                }
+            }
+        },
+        "PlatformTest": {
+            "type": "Data Store",
+            "description": "",
+            "x": -47.190540007638646,
+            "y": -340.4838388611405,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/platformtest/PlatformTest.sqlite"
+                }
+            }
+        },
+        "Data Scenario Design": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -601.3979051035165,
+            "y": 121.26192798034239,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "InputData/ScenarioDesign.xlsx"
+                }
+            ],
+            "db_references": []
+        },
+        "Step4 Import Platform Operation": {
+            "type": "Importer",
+            "description": "",
+            "x": -305.9380602309308,
+            "y": -62.614266222689814,
+            "specification": "importer_platform_operation",
+            "cancel_on_error": false,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "<project>/InputData/PlatformOperation.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Step3 InitialiseModel": {
+            "type": "Merger",
+            "description": "",
+            "x": -265.05227286469915,
+            "y": -172.33436752799832,
+            "cancel_on_error": false
+        },
+        "Step2 Import Model Config": {
+            "type": "Importer",
+            "description": "",
+            "x": -544.8715138070374,
+            "y": -170.67909682363515,
+            "specification": "importer_model_configuration",
+            "cancel_on_error": false,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "<project>/InputData/ModelConfig.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Step1 Load SpineOpt template": {
+            "type": "Tool",
+            "description": "",
+            "x": -537.5545616443111,
+            "y": -366.9138294413314,
+            "specification": "Load template",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@InitModelConfig"
+                }
+            ],
+            "kill_completed_processes": true
+        },
+        "SelectInvScenario": {
+            "type": "Merger",
+            "description": "",
+            "x": -49.2312507811623,
+            "y": -7.114144743142432,
+            "cancel_on_error": false
+        },
+        "Step7 SpineOpt": {
+            "type": "Tool",
+            "description": "",
+            "x": 250.6988082870556,
+            "y": -172.28269773475384,
+            "specification": "run_SpineOpt_customised",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@SamplePlatform"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@OutputDB"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "SamplePlatform": {
+            "type": "Data Store",
+            "description": "",
+            "x": -129.59222021156785,
+            "y": -172.14486912099312,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/sampleplatform/SamplePlatform.sqlite"
+                }
+            }
+        },
+        "Step6 Build Scenarios": {
+            "type": "Importer",
+            "description": "",
+            "x": -308.74984771638645,
+            "y": 123.31385440522388,
+            "specification": "importer_scenario_builder",
+            "cancel_on_error": false,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "<project>/InputData/ScenarioDesign.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Step5 Import Platform Transition": {
+            "type": "Importer",
+            "description": "",
+            "x": -307.88655910920227,
+            "y": 29.926289901161624,
+            "specification": "importer_platform_transition",
+            "cancel_on_error": false,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "<project>/InputData/PlatformTransition.xlsx",
+                    true
+                ]
+            ]
+        },
+        "PlatformTransitionCCS": {
+            "type": "Data Store",
+            "description": "",
+            "x": 99.75589598793273,
+            "y": -10.132484581824155,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/platformtransitionccs/PlatformTransitionCCS.sqlite"
+                }
+            }
+        }
+    }
+}

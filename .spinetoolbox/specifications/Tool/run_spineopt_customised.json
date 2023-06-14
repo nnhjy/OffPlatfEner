@@ -1,0 +1,13 @@
+{
+    "name": "run_SpineOpt_customised",
+    "tooltype": "julia",
+    "includes": [
+        "run_SpineOpt_customised.jl"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../../Scripts"
+}
