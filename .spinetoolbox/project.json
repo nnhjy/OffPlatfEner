@@ -160,7 +160,11 @@
                                 "BAU_Operation": true,
                                 "BAU_OperationReserve": true,
                                 "Repurposing_1": true,
-                                "Repurposing_1_Reserve": true
+                                "Repurposing_2": true,
+                                "Repurposing_3": true,
+                                "Repurposing_Reserve_1": true,
+                                "Repurposing_Reserve_2": true,
+                                "Repurposing_Reserve_3": true
                             },
                             "tool_filter": {
                                 "object_activity_control": true
@@ -379,10 +383,14 @@
                     "known_filters": {
                         "db_url@SamplePlatform": {
                             "scenario_filter": {
-                                "BAU_Operation": true,
-                                "BAU_OperationReserve": true,
+                                "BAU_Operation": false,
+                                "BAU_OperationReserve": false,
                                 "Repurposing_1": true,
-                                "Repurposing_1_Reserve": true
+                                "Repurposing_2": true,
+                                "Repurposing_3": true,
+                                "Repurposing_Reserve_1": true,
+                                "Repurposing_Reserve_2": true,
+                                "Repurposing_Reserve_3": true
                             },
                             "tool_filter": {
                                 "object_activity_control": true

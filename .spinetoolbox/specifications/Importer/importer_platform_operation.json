@@ -434,7 +434,8 @@
                                     23,
                                     24,
                                     25,
-                                    26
+                                    26,
+                                    27
                                 ]
                             },
                             {
@@ -1883,7 +1884,8 @@
                 "23": "float",
                 "24": "string",
                 "25": "float",
-                "26": "duration"
+                "26": "duration",
+                "27": "duration"
             },
             "UtilityUnit_reserves": {
                 "0": "string",
