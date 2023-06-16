@@ -157,17 +157,23 @@
                     "known_filters": {
                         "db_url@SamplePlatform": {
                             "scenario_filter": {
-                                "BAU_Operation": true,
-                                "BAU_OperationReserve": true,
+                                "BAU_Operation": false,
+                                "BAU_OperationReserve": false,
                                 "Repurposing_1": true,
-                                "Repurposing_2": true,
-                                "Repurposing_3": true,
-                                "Repurposing_Reserve_1": true,
-                                "Repurposing_Reserve_2": true,
-                                "Repurposing_Reserve_3": true
+                                "Repurposing_2": false,
+                                "Repurposing_3": false,
+                                "Repurposing_4": true,
+                                "Repurposing_5": true,
+                                "Repurposing_6": true,
+                                "Repurposing_Reserve_1": false,
+                                "Repurposing_Reserve_2": false,
+                                "Repurposing_Reserve_3": false,
+                                "Repurposing_Reserve_4": true,
+                                "Repurposing_Reserve_5": true,
+                                "Repurposing_Reserve_6": true
                             },
                             "tool_filter": {
-                                "object_activity_control": true
+                                "object_activity_control": false
                             }
                         }
                     },
@@ -386,11 +392,17 @@
                                 "BAU_Operation": false,
                                 "BAU_OperationReserve": false,
                                 "Repurposing_1": true,
-                                "Repurposing_2": true,
-                                "Repurposing_3": true,
+                                "Repurposing_2": false,
+                                "Repurposing_3": false,
+                                "Repurposing_4": false,
+                                "Repurposing_5": false,
+                                "Repurposing_6": true,
                                 "Repurposing_Reserve_1": true,
-                                "Repurposing_Reserve_2": true,
-                                "Repurposing_Reserve_3": true
+                                "Repurposing_Reserve_2": false,
+                                "Repurposing_Reserve_3": false,
+                                "Repurposing_Reserve_4": false,
+                                "Repurposing_Reserve_5": false,
+                                "Repurposing_Reserve_6": true
                             },
                             "tool_filter": {
                                 "object_activity_control": true
