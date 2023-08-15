@@ -23,26 +23,6 @@
                     }
                 }
             ],
-            "Home": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
             "Decommission": [
                 {
                     "ObjectParameter_unit": {
@@ -1092,7 +1072,6 @@
         ],
         "table_options": {
             "Base": {},
-            "Home": {},
             "Decommission": {
                 "header": true
             },
@@ -1102,7 +1081,8 @@
                 "read_until_row": true
             },
             "Electrify_power": {
-                "header": true
+                "header": true,
+                "read_until_row": true
             },
             "Electrify_others": {
                 "header": true
@@ -1124,7 +1104,8 @@
                 "read_until_row": true
             },
             "TransitionActions": {
-                "header": true
+                "header": true,
+                "read_until_row": true
             }
         },
         "table_types": {
@@ -1142,9 +1123,10 @@
                 "10": "float",
                 "11": "float",
                 "12": "duration",
-                "13": "string",
-                "14": "float",
-                "15": "string"
+                "13": "duration",
+                "14": "string",
+                "15": "float",
+                "16": "string"
             },
             "Decommission_ts": {
                 "0": "datetime",
@@ -1170,7 +1152,8 @@
                 "15": "float",
                 "16": "duration",
                 "17": "string",
-                "18": "float"
+                "18": "duration",
+                "19": "string"
             },
             "Electrify_others": {
                 "0": "string",
@@ -1236,7 +1219,8 @@
                 "12": "float",
                 "13": "duration",
                 "14": "string",
-                "15": "float"
+                "15": "duration",
+                "16": "float"
             },
             "CCS_ts": {
                 "0": "string",

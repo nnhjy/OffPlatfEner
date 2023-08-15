@@ -1,6 +1,6 @@
 {
     "project": {
-        "version": 10,
+        "version": 11,
         "description": "",
         "specifications": {
             "Tool": [
@@ -144,13 +144,13 @@
                 }
             },
             {
-                "name": "from SamplePlatform to SelectInvScenario",
+                "name": "from SamplePlatform to SelectScenarios",
                 "from": [
                     "SamplePlatform",
                     "bottom"
                 ],
                 "to": [
-                    "SelectInvScenario",
+                    "SelectScenarios",
                     "left"
                 ],
                 "filter_settings": {
@@ -162,15 +162,19 @@
                                 "Repurposing_1": true,
                                 "Repurposing_2": false,
                                 "Repurposing_3": false,
-                                "Repurposing_4": true,
-                                "Repurposing_5": true,
-                                "Repurposing_6": true,
-                                "Repurposing_Reserve_1": false,
+                                "Repurposing_4": false,
+                                "Repurposing_5": false,
+                                "Repurposing_6": false,
+                                "Repurposing_7": false,
+                                "Repurposing_8": false,
+                                "Repurposing_Reserve_1": true,
                                 "Repurposing_Reserve_2": false,
                                 "Repurposing_Reserve_3": false,
-                                "Repurposing_Reserve_4": true,
-                                "Repurposing_Reserve_5": true,
-                                "Repurposing_Reserve_6": true
+                                "Repurposing_Reserve_4": false,
+                                "Repurposing_Reserve_5": false,
+                                "Repurposing_Reserve_6": false,
+                                "Repurposing_Reserve_7": false,
+                                "Repurposing_Reserve_8": false
                             },
                             "tool_filter": {
                                 "object_activity_control": false
@@ -181,13 +185,13 @@
                 }
             },
             {
-                "name": "from SelectInvScenario to PlatformTransitionCCS",
+                "name": "from SelectScenarios to PlatformSubSystem",
                 "from": [
-                    "SelectInvScenario",
+                    "SelectScenarios",
                     "right"
                 ],
                 "to": [
-                    "PlatformTransitionCCS",
+                    "PlatformSubSystem",
                     "left"
                 ],
                 "options": {
@@ -391,18 +395,22 @@
                             "scenario_filter": {
                                 "BAU_Operation": false,
                                 "BAU_OperationReserve": false,
-                                "Repurposing_1": true,
+                                "Repurposing_1": false,
                                 "Repurposing_2": false,
                                 "Repurposing_3": false,
                                 "Repurposing_4": false,
                                 "Repurposing_5": false,
-                                "Repurposing_6": true,
-                                "Repurposing_Reserve_1": true,
+                                "Repurposing_6": false,
+                                "Repurposing_7": false,
+                                "Repurposing_8": false,
+                                "Repurposing_Reserve_1": false,
                                 "Repurposing_Reserve_2": false,
                                 "Repurposing_Reserve_3": false,
                                 "Repurposing_Reserve_4": false,
                                 "Repurposing_Reserve_5": false,
-                                "Repurposing_Reserve_6": true
+                                "Repurposing_Reserve_6": false,
+                                "Repurposing_Reserve_7": false,
+                                "Repurposing_Reserve_8": false
                             },
                             "tool_filter": {
                                 "object_activity_control": true
@@ -422,9 +430,37 @@
                     "SamplePlatform",
                     "bottom"
                 ]
+            },
+            {
+                "name": "from PlatformSubSystem to Step7 SpineOpt",
+                "from": [
+                    "PlatformSubSystem",
+                    "right"
+                ],
+                "to": [
+                    "Step7 SpineOpt",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@PlatformSubSystem": {
+                            "scenario_filter": {
+                                "BAU": true,
+                                "BAU_Reserve": true
+                            },
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
             }
         ],
-        "jumps": []
+        "jumps": [],
+        "settings": {
+            "enable_execute_all": true
+        }
     },
     "items": {
         "Data Model Configuration": {
@@ -489,7 +525,7 @@
             "type": "Data Store",
             "description": "",
             "x": 474.3250522926562,
-            "y": -171.37553874777555,
+            "y": -174.73899124417517,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -498,22 +534,6 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/items/outputdb/OutputDB.sqlite"
-                }
-            }
-        },
-        "PlatformTest": {
-            "type": "Data Store",
-            "description": "",
-            "x": -47.190540007638646,
-            "y": -340.4838388611405,
-            "url": {
-                "dialect": "sqlite",
-                "host": "",
-                "port": "",
-                "database": {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/items/platformtest/PlatformTest.sqlite"
                 }
             }
         },
@@ -583,24 +603,17 @@
             ],
             "kill_completed_processes": true
         },
-        "SelectInvScenario": {
-            "type": "Merger",
-            "description": "",
-            "x": -49.2312507811623,
-            "y": -7.114144743142432,
-            "cancel_on_error": false
-        },
         "Step7 SpineOpt": {
             "type": "Tool",
             "description": "",
             "x": 250.6988082870556,
-            "y": -172.28269773475384,
+            "y": -174.8014154578671,
             "specification": "run_SpineOpt_customised",
             "execute_in_work": true,
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "db_url@SamplePlatform"
+                    "arg": "db_url@PlatformSubSystem"
                 },
                 {
                     "type": "resource",
@@ -612,8 +625,8 @@
         "SamplePlatform": {
             "type": "Data Store",
             "description": "",
-            "x": -129.59222021156785,
-            "y": -172.14486912099312,
+            "x": -129.59222021156788,
+            "y": -173.4042279825498,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -655,11 +668,18 @@
                 ]
             ]
         },
-        "PlatformTransitionCCS": {
+        "SelectScenarios": {
+            "type": "Merger",
+            "description": "",
+            "x": -49.23125078116231,
+            "y": -8.373503604699096,
+            "cancel_on_error": false
+        },
+        "PlatformSubSystem": {
             "type": "Data Store",
             "description": "",
             "x": 99.75589598793273,
-            "y": -10.132484581824155,
+            "y": -11.391843443380818,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -667,7 +687,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/items/platformtransitionccs/PlatformTransitionCCS.sqlite"
+                    "path": ".spinetoolbox/items/platformsubsystem/PlatformOperation.sqlite"
                 }
             }
         }
