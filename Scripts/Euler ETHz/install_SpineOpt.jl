@@ -2,19 +2,19 @@
 # Date: 2023-Aug-18
 # This script installs the lastest development version of SpineOpt.jl associated packages on ETHz Euler cluster.
 
-#= Default command to run this script on Euler in bash:
-    julia /path/to/the/install_SpineOpt.jl
-    e.g. 
+#= Before running this script, one needs to load the following modules on Euler using the command below in bash:
+    module load gurobi gcc/6.3.0 julia/1.8.5 eth_proxy
+=#
+
+#= To check which julia is available on Euler, use the command below in bash:
+    module spider julia
+=#
+
+#= Default command to run this script on Euler in bash: julia /path/to/install_SpineOpt.jl, e.g.
     julia $HOME/Projects/SpineOptModels/install_SpineOpt.jl
 =#
 
-# Load the needed modules on Euler
-command_load_module = "module load gurobi gcc/6.3.0 julia/1.8.5 eth_proxy"
-run(`bash -c $command_load_module`)
-# To check which julia is available on Euler, use the command below in bash:
-# module spider julia
-
-# Use the directory of this script loacates as the default directory for
+# Use the directory of this script as the default directory for
 # the julia virtual environment that accommodates SpineOpt.jl and the related packages
 path_to_SpineOpt_env = @__DIR__
 
