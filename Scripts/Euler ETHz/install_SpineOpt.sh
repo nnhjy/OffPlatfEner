@@ -14,7 +14,8 @@ module load gurobi gcc/6.3.0 julia/1.8.5 eth_proxy
 cd $HOME
 
 julia ./path/to/install_SpineOpt.jl
-# relative path to $HOME
+# a relative path to $HOME
 
-$HOME/.julia/conda/3/bin/python -m pip install --user 'git+https://github.com/Spine-project/Spine-Database-API'
-# The python path can be obtained using PyCall in Julia, see in the install_SpineOpt.jl
+# # standby command to install Spine-Database-API
+# $HOME/.julia/conda/3/bin/python -m pip install --user 'git+https://github.com/Spine-project/Spine-Database-API@master'
+# # The python path can be obtained using PyCall in Julia, see in the install_SpineOpt.jl
