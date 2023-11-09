@@ -2,6 +2,9 @@
     "project": {
         "version": 11,
         "description": "",
+        "settings": {
+            "enable_execute_all": true
+        },
         "specifications": {
             "Tool": [
                 {
@@ -457,10 +460,7 @@
                 }
             }
         ],
-        "jumps": [],
-        "settings": {
-            "enable_execute_all": true
-        }
+        "jumps": []
     },
     "items": {
         "Data Model Configuration": {
@@ -601,7 +601,8 @@
                     "arg": "db_url@InitModelConfig"
                 }
             ],
-            "kill_completed_processes": true
+            "kill_completed_processes": true,
+            "log_process_output": false
         },
         "Step7 SpineOpt": {
             "type": "Tool",
@@ -620,7 +621,8 @@
                     "arg": "db_url@OutputDB"
                 }
             ],
-            "kill_completed_processes": false
+            "kill_completed_processes": false,
+            "log_process_output": false
         },
         "SamplePlatform": {
             "type": "Data Store",
