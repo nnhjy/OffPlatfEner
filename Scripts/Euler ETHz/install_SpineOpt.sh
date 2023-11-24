@@ -9,7 +9,7 @@
 
 # to execute this script: "sbatch < path/to/sbatch_install_SpineOpt.sh"
 
-module load gurobi gcc/6.3.0 julia/1.8.5 eth_proxy
+module load gurobi gcc/9.3.0 julia/1.9.3 eth_proxy
 
 cd $HOME
 

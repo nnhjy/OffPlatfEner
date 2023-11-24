@@ -1,10 +1,10 @@
 # Author: Huang, Jiangyi (ETHz)
-# Date: 2023-Aug-18
+# Date: 2023-Nov-24
 # This script installs the lastest development version of SpineOpt.jl associated packages on ETHz Euler cluster.
 
 #= Step 1: Before running this script, 
 one needs to load the following modules on Euler using the command below in bash:
-    module load gurobi gcc/6.3.0 julia/1.8.5 eth_proxy
+    module load gurobi gcc/9.3.0 julia/1.9.3 eth_proxy
 =#
 
 #= To check which julia is available on Euler, use the command below in bash:
