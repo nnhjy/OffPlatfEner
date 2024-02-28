@@ -518,7 +518,8 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/items/initmodelconfig/InitModelConfig.sqlite"
-                }
+                },
+                "schema": ""
             }
         },
         "OutputDB": {
@@ -534,7 +535,8 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/items/outputdb/OutputDB.sqlite"
-                }
+                },
+                "schema": ""
             }
         },
         "Data Scenario Design": {
@@ -637,7 +639,8 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/items/sampleplatform/SamplePlatform.sqlite"
-                }
+                },
+                "schema": ""
             }
         },
         "Step6 Build Scenarios": {
@@ -689,8 +692,9 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/items/platformsubsystem/PlatformOperation.sqlite"
-                }
+                    "path": ".spinetoolbox/items/platformsubsystem/PlatformSubSystem.sqlite"
+                },
+                "schema": ""
             }
         }
     }
