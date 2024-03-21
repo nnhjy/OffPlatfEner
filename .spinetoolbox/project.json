@@ -347,7 +347,7 @@
                     "bottom"
                 ],
                 "options": {
-                    "purge_before_writing": true,
+                    "purge_before_writing": false,
                     "purge_settings": {
                         "object_class": false,
                         "relationship_class": false,
@@ -448,8 +448,8 @@
                     "known_filters": {
                         "db_url@PlatformSubSystem": {
                             "scenario_filter": {
-                                "BAU": true,
-                                "BAU_Reserve": true
+                                "Repurposing_1": true,
+                                "Repurposing_Reserve_1": true
                             },
                             "tool_filter": {
                                 "object_activity_control": true
