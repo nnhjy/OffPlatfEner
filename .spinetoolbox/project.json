@@ -1,6 +1,6 @@
 {
     "project": {
-        "version": 11,
+        "version": 13,
         "description": "",
         "settings": {
             "enable_execute_all": true
@@ -17,22 +17,17 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/specifications/Importer/importer_report__output.json"
+                    "path": ".spinetoolbox/specifications/Importer/importer_platform_transition.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/importer_model_configuration.json"
                 },
                 {
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Importer/importer_platform_operation.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Importer/importer_scenario_builder.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Importer/importer_platform_transition.json"
                 }
             ],
             "Data Transformer": [
@@ -40,13 +35,6 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Data Transformer/sample_transformer.json"
-                }
-            ],
-            "Exporter": [
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/specifications/Exporter/subsetexporter.json"
                 }
             ]
         },
@@ -63,51 +51,13 @@
                 ],
                 "options": {
                     "use_datapackage": false
-                }
-            },
-            {
-                "name": "from Data Platform Operation to Step4 Import Platform Operation",
-                "from": [
-                    "Data Platform Operation",
-                    "right"
-                ],
-                "to": [
-                    "Step4 Import Platform Operation",
-                    "left"
-                ]
-            },
-            {
-                "name": "from Step4 Import Platform Operation to SamplePlatform",
-                "from": [
-                    "Step4 Import Platform Operation",
-                    "right"
-                ],
-                "to": [
-                    "SamplePlatform",
-                    "left"
-                ],
-                "options": {
-                    "purge_before_writing": false,
-                    "purge_settings": {
-                        "object_class": false,
-                        "relationship_class": false,
-                        "parameter_value_list": false,
-                        "list_value": false,
-                        "parameter_definition": false,
-                        "object": false,
-                        "relationship": false,
-                        "entity_group": false,
-                        "parameter_value": false,
-                        "alternative": false,
-                        "scenario": false,
-                        "scenario_alternative": false,
-                        "feature": false,
-                        "tool": false,
-                        "tool_feature": false,
-                        "tool_feature_method": false,
-                        "metadata": false,
-                        "entity_metadata": false,
-                        "parameter_value_metadata": false
+                },
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
                     }
                 }
             },
@@ -144,6 +94,14 @@
                         "entity_metadata": true,
                         "parameter_value_metadata": true
                     }
+                },
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
                 }
             },
             {
@@ -160,8 +118,8 @@
                     "known_filters": {
                         "db_url@SamplePlatform": {
                             "scenario_filter": {
-                                "BAU_Operation": false,
-                                "BAU_OperationReserve": false,
+                                "BAU_Operation": true,
+                                "BAU_OperationReserve": true,
                                 "Repurposing_1": true,
                                 "Repurposing_2": false,
                                 "Repurposing_3": false,
@@ -179,12 +137,43 @@
                                 "Repurposing_Reserve_7": false,
                                 "Repurposing_Reserve_8": false
                             },
-                            "tool_filter": {
-                                "object_activity_control": false
+                            "alternative_filter": {
+                                "Base": true,
+                                "CCS": true,
+                                "ContingencyExcl": true,
+                                "ContingencyReserves": true,
+                                "Decommission": true,
+                                "ElectrifyBase": true,
+                                "ElectrifyCCSWind": true,
+                                "ElectrifyCCSWindNoReserves": true,
+                                "ElectrifyCCSWindReserves": true,
+                                "ElectrifyInvestWindFarm": true,
+                                "ElectrifyInvestWindFarmNoReserves": true,
+                                "ElectrifyInvestWindFarmReserves": true,
+                                "ElectrifyPurchase": true,
+                                "ElectrifyPurchaseNoReserves": true,
+                                "ElectrifyPurchaseReserves": true,
+                                "FixCarbonPrice_1": true,
+                                "LimitLifetimeGenerator": true,
+                                "TSdevelopmentCarbonPrice_1": true,
+                                "TSdevelopmentCarbonPrice_2": true,
+                                "TSdevelopmentCarbonPrice_3": true,
+                                "TSdevelopmentCarbonPrice_4": true,
+                                "TSdevelopmentCarbonPrice_5": true,
+                                "TSdevelopmentCarbonPrice_6": true,
+                                "TSdevelopmentCarbonPrice_7": true,
+                                "TSdevelopmentCarbonPrice_8": true,
+                                "TSdevelopmentPersonnel_1": true,
+                                "Test": true,
+                                "TransitionAction": true
                             }
                         }
                     },
-                    "auto_online": true
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
                 }
             },
             {
@@ -200,25 +189,29 @@
                 "options": {
                     "purge_before_writing": true,
                     "purge_settings": {
-                        "object_class": true,
-                        "relationship_class": true,
-                        "parameter_value_list": true,
-                        "list_value": true,
-                        "parameter_definition": true,
-                        "object": true,
-                        "relationship": true,
-                        "entity_group": true,
-                        "parameter_value": true,
                         "alternative": true,
                         "scenario": true,
                         "scenario_alternative": true,
-                        "feature": true,
-                        "tool": true,
-                        "tool_feature": true,
-                        "tool_feature_method": true,
+                        "entity_class": true,
+                        "superclass_subclass": true,
+                        "entity": true,
+                        "entity_group": true,
+                        "entity_alternative": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "parameter_value": true,
                         "metadata": true,
                         "entity_metadata": true,
                         "parameter_value_metadata": true
+                    }
+                },
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
                     }
                 }
             },
@@ -231,7 +224,15 @@
                 "to": [
                     "InitModelConfig",
                     "left"
-                ]
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             },
             {
                 "name": "from InitModelConfig to Step3 InitialiseModel",
@@ -246,13 +247,63 @@
                 "filter_settings": {
                     "known_filters": {
                         "db_url@InitModelConfig": {
-                            "scenario_filter": {},
-                            "tool_filter": {
-                                "object_activity_control": true
+                            "scenario_filter": {
+                                "BAU_Operation": true,
+                                "BAU_OperationReserve": true,
+                                "Repurposing_1": true,
+                                "Repurposing_2": true,
+                                "Repurposing_3": true,
+                                "Repurposing_4": true,
+                                "Repurposing_5": true,
+                                "Repurposing_6": true,
+                                "Repurposing_7": true,
+                                "Repurposing_8": true,
+                                "Repurposing_Reserve_1": true,
+                                "Repurposing_Reserve_2": true,
+                                "Repurposing_Reserve_3": true,
+                                "Repurposing_Reserve_4": true,
+                                "Repurposing_Reserve_5": true,
+                                "Repurposing_Reserve_6": true,
+                                "Repurposing_Reserve_7": true,
+                                "Repurposing_Reserve_8": true
+                            },
+                            "alternative_filter": {
+                                "Base": true,
+                                "CCS": true,
+                                "ContingencyExcl": true,
+                                "ContingencyReserves": true,
+                                "Decommission": true,
+                                "ElectrifyBase": true,
+                                "ElectrifyCCSWind": true,
+                                "ElectrifyCCSWindNoReserves": true,
+                                "ElectrifyCCSWindReserves": true,
+                                "ElectrifyInvestWindFarm": true,
+                                "ElectrifyInvestWindFarmNoReserves": true,
+                                "ElectrifyInvestWindFarmReserves": true,
+                                "ElectrifyPurchase": true,
+                                "ElectrifyPurchaseNoReserves": true,
+                                "ElectrifyPurchaseReserves": true,
+                                "FixCarbonPrice_1": true,
+                                "LimitLifetimeGenerator": true,
+                                "TSdevelopmentCarbonPrice_1": true,
+                                "TSdevelopmentCarbonPrice_2": true,
+                                "TSdevelopmentCarbonPrice_3": true,
+                                "TSdevelopmentCarbonPrice_4": true,
+                                "TSdevelopmentCarbonPrice_5": true,
+                                "TSdevelopmentCarbonPrice_6": true,
+                                "TSdevelopmentCarbonPrice_7": true,
+                                "TSdevelopmentCarbonPrice_8": true,
+                                "TSdevelopmentPersonnel_1": true,
+                                "Test": true,
+                                "TransitionAction": true
                             }
                         }
                     },
-                    "auto_online": true
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": true,
+                        "scenario_filter": false
+                    }
                 }
             },
             {
@@ -268,25 +319,29 @@
                 "options": {
                     "purge_before_writing": true,
                     "purge_settings": {
-                        "object_class": true,
-                        "relationship_class": true,
-                        "parameter_value_list": true,
-                        "list_value": true,
-                        "parameter_definition": true,
-                        "object": true,
-                        "relationship": true,
-                        "entity_group": true,
-                        "parameter_value": true,
                         "alternative": true,
                         "scenario": true,
                         "scenario_alternative": true,
-                        "feature": true,
-                        "tool": true,
-                        "tool_feature": true,
-                        "tool_feature_method": true,
+                        "entity_class": true,
+                        "superclass_subclass": true,
+                        "entity": true,
+                        "entity_group": true,
+                        "entity_alternative": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "parameter_value": true,
                         "metadata": true,
                         "entity_metadata": true,
                         "parameter_value_metadata": true
+                    }
+                },
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
                     }
                 }
             },
@@ -323,51 +378,13 @@
                         "entity_metadata": true,
                         "parameter_value_metadata": true
                     }
-                }
-            },
-            {
-                "name": "from Data Scenario Design to Step6 Build Scenarios",
-                "from": [
-                    "Data Scenario Design",
-                    "right"
-                ],
-                "to": [
-                    "Step6 Build Scenarios",
-                    "left"
-                ]
-            },
-            {
-                "name": "from Step6 Build Scenarios to SamplePlatform",
-                "from": [
-                    "Step6 Build Scenarios",
-                    "right"
-                ],
-                "to": [
-                    "SamplePlatform",
-                    "bottom"
-                ],
-                "options": {
-                    "purge_before_writing": false,
-                    "purge_settings": {
-                        "object_class": false,
-                        "relationship_class": false,
-                        "parameter_value_list": false,
-                        "list_value": false,
-                        "parameter_definition": false,
-                        "object": false,
-                        "relationship": false,
-                        "entity_group": false,
-                        "parameter_value": false,
-                        "alternative": false,
-                        "scenario": true,
-                        "scenario_alternative": true,
-                        "feature": false,
-                        "tool": false,
-                        "tool_feature": false,
-                        "tool_feature_method": false,
-                        "metadata": false,
-                        "entity_metadata": false,
-                        "parameter_value_metadata": false
+                },
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
                     }
                 }
             },
@@ -380,47 +397,14 @@
                 "to": [
                     "Step5 Import Platform Transition",
                     "left"
-                ]
-            },
-            {
-                "name": "from SamplePlatform to Step7 SpineOpt",
-                "from": [
-                    "SamplePlatform",
-                    "right"
-                ],
-                "to": [
-                    "Step7 SpineOpt",
-                    "left"
                 ],
                 "filter_settings": {
-                    "known_filters": {
-                        "db_url@SamplePlatform": {
-                            "scenario_filter": {
-                                "BAU_Operation": false,
-                                "BAU_OperationReserve": false,
-                                "Repurposing_1": false,
-                                "Repurposing_2": false,
-                                "Repurposing_3": false,
-                                "Repurposing_4": false,
-                                "Repurposing_5": false,
-                                "Repurposing_6": false,
-                                "Repurposing_7": false,
-                                "Repurposing_8": false,
-                                "Repurposing_Reserve_1": false,
-                                "Repurposing_Reserve_2": false,
-                                "Repurposing_Reserve_3": false,
-                                "Repurposing_Reserve_4": false,
-                                "Repurposing_Reserve_5": false,
-                                "Repurposing_Reserve_6": false,
-                                "Repurposing_Reserve_7": false,
-                                "Repurposing_Reserve_8": false
-                            },
-                            "tool_filter": {
-                                "object_activity_control": true
-                            }
-                        }
-                    },
-                    "auto_online": true
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
                 }
             },
             {
@@ -432,7 +416,15 @@
                 "to": [
                     "SamplePlatform",
                     "bottom"
-                ]
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             },
             {
                 "name": "from PlatformSubSystem to Step7 SpineOpt",
@@ -448,15 +440,76 @@
                     "known_filters": {
                         "db_url@PlatformSubSystem": {
                             "scenario_filter": {
+                                "BAU_Operation": false,
+                                "BAU_OperationReserve": true,
                                 "Repurposing_1": true,
                                 "Repurposing_Reserve_1": true
                             },
-                            "tool_filter": {
-                                "object_activity_control": true
+                            "alternative_filter": {
+                                "Base": true,
+                                "CCS": true,
+                                "ContingencyExcl": true,
+                                "ContingencyReserves": true,
+                                "Decommission": true,
+                                "ElectrifyBase": true,
+                                "ElectrifyCCSWind": true,
+                                "ElectrifyCCSWindNoReserves": true,
+                                "ElectrifyCCSWindReserves": true,
+                                "ElectrifyInvestWindFarm": true,
+                                "ElectrifyInvestWindFarmNoReserves": true,
+                                "ElectrifyInvestWindFarmReserves": true,
+                                "ElectrifyPurchase": true,
+                                "ElectrifyPurchaseNoReserves": true,
+                                "ElectrifyPurchaseReserves": true,
+                                "LimitLifetimeGenerator": true,
+                                "TSdevelopmentCarbonPrice_1": true,
+                                "TransitionAction": true
                             }
                         }
                     },
-                    "auto_online": true
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Data Platform Operation to Step4 Import Platform Operation",
+                "from": [
+                    "Data Platform Operation",
+                    "right"
+                ],
+                "to": [
+                    "Step4 Import Platform Operation",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Step4 Import Platform Operation to SamplePlatform",
+                "from": [
+                    "Step4 Import Platform Operation",
+                    "right"
+                ],
+                "to": [
+                    "SamplePlatform",
+                    "bottom"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
                 }
             }
         ],
@@ -480,8 +533,8 @@
         "Data Platform Operation": {
             "type": "Data Connection",
             "description": "",
-            "x": -596.9596367541451,
-            "y": -63.227370189914986,
+            "x": -618.185095958285,
+            "y": -43.01264713835299,
             "file_references": [
                 {
                     "type": "path",
@@ -494,8 +547,8 @@
         "Data Platform Transition": {
             "type": "Data Connection",
             "description": "",
-            "x": -597.9226458674245,
-            "y": 29.473466462028547,
+            "x": -615.1051604612522,
+            "y": 86.0746910064021,
             "file_references": [
                 {
                     "type": "path",
@@ -539,35 +592,6 @@
                 "schema": ""
             }
         },
-        "Data Scenario Design": {
-            "type": "Data Connection",
-            "description": "",
-            "x": -601.3979051035165,
-            "y": 121.26192798034239,
-            "file_references": [
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "InputData/ScenarioDesign.xlsx"
-                }
-            ],
-            "db_references": []
-        },
-        "Step4 Import Platform Operation": {
-            "type": "Importer",
-            "description": "",
-            "x": -305.9380602309308,
-            "y": -62.614266222689814,
-            "specification": "importer_platform_operation",
-            "cancel_on_error": false,
-            "on_conflict": "replace",
-            "file_selection": [
-                [
-                    "<project>/InputData/PlatformOperation.xlsx",
-                    true
-                ]
-            ]
-        },
         "Step3 InitialiseModel": {
             "type": "Merger",
             "description": "",
@@ -581,7 +605,7 @@
             "x": -544.8715138070374,
             "y": -170.67909682363515,
             "specification": "importer_model_configuration",
-            "cancel_on_error": false,
+            "cancel_on_error": true,
             "on_conflict": "replace",
             "file_selection": [
                 [
@@ -643,28 +667,13 @@
                 "schema": ""
             }
         },
-        "Step6 Build Scenarios": {
-            "type": "Importer",
-            "description": "",
-            "x": -308.74984771638645,
-            "y": 123.31385440522388,
-            "specification": "importer_scenario_builder",
-            "cancel_on_error": false,
-            "on_conflict": "replace",
-            "file_selection": [
-                [
-                    "<project>/InputData/ScenarioDesign.xlsx",
-                    true
-                ]
-            ]
-        },
         "Step5 Import Platform Transition": {
             "type": "Importer",
             "description": "",
-            "x": -307.88655910920227,
-            "y": 29.926289901161624,
+            "x": -302.83287834631165,
+            "y": 85.51677829295707,
             "specification": "importer_platform_transition",
-            "cancel_on_error": false,
+            "cancel_on_error": true,
             "on_conflict": "replace",
             "file_selection": [
                 [
@@ -696,6 +705,21 @@
                 },
                 "schema": ""
             }
+        },
+        "Step4 Import Platform Operation": {
+            "type": "Importer",
+            "description": "",
+            "x": -303.6218207428815,
+            "y": -41.14174559473133,
+            "specification": "importer_platform_operation",
+            "cancel_on_error": true,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "<project>/InputData/PlatformOperation.xlsx",
+                    true
+                ]
+            ]
         }
     }
 }
