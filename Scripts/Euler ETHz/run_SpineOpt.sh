@@ -9,7 +9,7 @@
 
 # to execute this script: "sbatch < run_SpineOpt.sh"
 
-module load gurobi gcc/6.3.0 julia/1.8.5
+module load gurobi gcc/11.4.0 julia/1.10.2
 
 cd $SCRATCH/path/to/the/SpineOptProject
 

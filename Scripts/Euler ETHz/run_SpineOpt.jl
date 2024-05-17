@@ -12,15 +12,14 @@ output_db_url = "sqlite:///./path/to/outputDB.sqlite"
 
 scenario_name = "scenario_xx"
 
-@time begin
-    m = run_spineopt(
-            input_db_url, output_db_url, 
-			mip_solver=optimizer_with_attributes(Gurobi.Optimizer),
-			lp_solver=optimizer_with_attributes(Gurobi.Optimizer),
-            		filters=Dict("tool" => "object_activity_control", "scenario" => scenario_name),
-			alternative=scenario_name
-		)
-end
+m = run_spineopt(
+    input_db_url, output_db_url; 
+    upgrade=true,
+    mip_solver=optimizer_with_attributes(Gurobi.Optimizer),
+    lp_solver=optimizer_with_attributes(Gurobi.Optimizer),
+    filters=Dict("tool" => "object_activity_control", "scenario" => scenario_name),
+    alternative=scenario_name
+)
 
 #=
 Alternatively, you can customize your run by using the form below.
