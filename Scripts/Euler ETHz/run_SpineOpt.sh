@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH -n 8 # 8 cores
-#SBATCH --mem-per-cpu=16G # 16GB per core	# guest users can use maximum 48 cores and 128G memory in total
-#SBATCH --time=48:00:00 # 48-hour run-time
+#SBATCH -n 4 # 4 cores				# Guest users can use maximum 48 cores and 128G memory in total.
+#SBATCH --mem-per-cpu=8G # 8 GB per core	# Settings in a batch script only prescribes the resource for its own tasks. 
+#SBATCH --time=4:00:00 # 4-hour run-time	# e.g. 4 cores * 16GB/core means we can simutaneously execute 2 of such scripts. 
 #SBATCH --tmp=10G # Local scratch space per node
 #SBATCH --job-name=runSpineOpt
 #SBATCH --mail-type=BEGIN,END,FAIL # send an email when the job begins, ends, and fails
