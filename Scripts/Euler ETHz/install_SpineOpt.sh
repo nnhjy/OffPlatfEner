@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH -n 2 # 2 cores
-#SBATCH --mem-per-cpu=6G # 6GB per core	# guest users can use maximum 48 cores and 128G memory in total
+#SBATCH -n 1 # 1 core
+#SBATCH --mem-per-cpu=8G # 8GB per core, guest users can use maximum 48 cores and 128G memory in total
 #SBATCH --time=1:00:00 # 1-hour run-time
 #SBATCH --tmp=2G # Local scratch space per node
 #SBATCH --job-name=InstallSpineOpt
@@ -10,7 +10,7 @@
 # to execute this script: "sbatch < path/to/install_SpineOpt.sh"
 # to fix DOS line breaks error, run "dos2unix path/to/install_SpineOpt.sh" in the terminal first
 
-module load gurobi gcc/11.4.0 julia/1.10.2 eth_proxy
+module load gurobi julia/1.10.3 eth_proxy
 
 # Place this script in the same directory as the install_SpineOpt.jl
 julia ./install_SpineOpt.jl
