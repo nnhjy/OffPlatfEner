@@ -384,6 +384,7 @@
                                     1,
                                     2,
                                     3,
+                                    4,
                                     7,
                                     8,
                                     9,
@@ -404,20 +405,18 @@
                                     24,
                                     25,
                                     26,
-                                    27,
-                                    28,
-                                    29
+                                    27
                                 ]
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 1
+                                "position": "hidden",
+                                "value": "unit"
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 2
+                                "position": "hidden",
+                                "value": "node"
                             },
                             {
                                 "map_type": "Entity",
@@ -439,12 +438,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 3
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 4
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -546,7 +549,8 @@
                                     14,
                                     15,
                                     16,
-                                    17
+                                    17,
+                                    18
                                 ]
                             },
                             {
@@ -558,12 +562,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 17
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 18
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -622,12 +630,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 5
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 6
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -1179,13 +1191,13 @@
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 1
+                                "position": "hidden",
+                                "value": "unit"
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 2
+                                "position": "hidden",
+                                "value": "node"
                             },
                             {
                                 "map_type": "Entity",
@@ -1820,7 +1832,7 @@
                 "24": "string",
                 "25": "float",
                 "26": "float",
-                "27": "duration"
+                "27": "float"
             },
             "UtilityUnit_generator_ts": {
                 "0": "datetime",

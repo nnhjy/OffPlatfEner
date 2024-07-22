@@ -40,7 +40,8 @@
                                     5,
                                     6,
                                     7,
-                                    8
+                                    8,
+                                    9
                                 ]
                             },
                             {
@@ -52,12 +53,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 8
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 9
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -75,8 +80,7 @@
                         "mapping": [
                             {
                                 "map_type": "EntityClass",
-                                "position": "hidden",
-                                "value": "unit__to_node",
+                                "position": 0,
                                 "skip_columns": [
                                     0,
                                     1,
@@ -96,13 +100,13 @@
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 1
+                                "position": "hidden",
+                                "value": "unit"
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 2
+                                "position": "hidden",
+                                "value": "node"
                             },
                             {
                                 "map_type": "Entity",
@@ -204,6 +208,7 @@
                                     1,
                                     2,
                                     3,
+                                    4,
                                     7,
                                     8,
                                     9,
@@ -216,25 +221,18 @@
                                     16,
                                     17,
                                     18,
-                                    19,
-                                    20,
-                                    21,
-                                    22,
-                                    23,
-                                    24,
-                                    25,
-                                    26
+                                    19
                                 ]
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 1
+                                "position": "hidden",
+                                "value": "unit"
                             },
                             {
                                 "map_type": "Dimension",
-                                "position": "header",
-                                "value": 2
+                                "position": "hidden",
+                                "value": "node"
                             },
                             {
                                 "map_type": "Entity",
@@ -256,12 +254,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 3
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 4
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -279,8 +281,8 @@
                         "mapping": [
                             {
                                 "map_type": "EntityClass",
-                                "position": "hidden",
-                                "value": "unit",
+                                "position": "header",
+                                "value": 8,
                                 "skip_columns": [
                                     0,
                                     1,
@@ -291,7 +293,8 @@
                                     6,
                                     7,
                                     8,
-                                    9
+                                    9,
+                                    10
                                 ]
                             },
                             {
@@ -303,12 +306,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 9
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 10
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -328,8 +335,7 @@
                         "mapping": [
                             {
                                 "map_type": "EntityClass",
-                                "position": "hidden",
-                                "value": "unit__node__node",
+                                "position": 0,
                                 "skip_columns": [
                                     0,
                                     1,
@@ -529,15 +535,19 @@
                             },
                             {
                                 "map_type": "EntityMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
+                                "position": 17
                             },
                             {
                                 "map_type": "Alternative",
                                 "position": 16
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 17
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -782,7 +792,8 @@
                                     3,
                                     4,
                                     5,
-                                    6
+                                    6,
+                                    7
                                 ]
                             },
                             {
@@ -794,12 +805,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 6
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 7
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -845,12 +860,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 1
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 2
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -962,12 +981,16 @@
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ParameterDefinition",
-                                "position": "header"
-                            },
-                            {
                                 "map_type": "Alternative",
                                 "position": 9
+                            },
+                            {
+                                "map_type": "EntityAlternativeActivity",
+                                "position": 10
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "header"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -1147,7 +1170,7 @@
                 "7": "string",
                 "8": "string",
                 "9": "string",
-                "10": "boolean",
+                "10": "string",
                 "11": "float",
                 "12": "float",
                 "13": "float",
@@ -1156,7 +1179,7 @@
                 "16": "duration",
                 "17": "string",
                 "18": "duration",
-                "19": "string"
+                "19": "float"
             },
             "Electrify_others": {
                 "0": "string",
@@ -1176,7 +1199,7 @@
                 "14": "string",
                 "15": "string",
                 "16": "string",
-                "17": "boolean",
+                "17": "string",
                 "18": "float",
                 "19": "float",
                 "20": "float",
